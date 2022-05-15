@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} ITC Website{% endblock title %}
+
+{% block homenav %}
+<li class="nav-item">
+  <a class="nav-link active" aria-current="page" href="#">Home</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link mx-2" href="#">Teams</a>
+</li>
+
+{% endblock homenav %}
+
+{% block body %}
+
+<div>
+  <h1 class="text-center"><b>Teams</b></h1>
+  <h4 class="text-center">API - <a href="/API">CLICK HERE</a></h4>
+  <hr>
+<div class="container">
+  <table class="table">
+    <thead class="table-success">
+      <tr>
+        <th scope="col">TEAM ID</th>
+        <th scope="col">TEAM NAME</th>
+        <th scope="col">More Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for team in teams %}
+      <tr>
+        <th scope="row" class="table-warning">{{team.Team_id}}</th>
+        <td class="table-primary">{{team.Team_name}}</td>
+        <td class="table-info"><a class="btn btn-info" href="/{{team.Team_id}}" role="button">Click Here</a></td>
+      </tr>
+      {% endfor %}
+
+       
+    </tbody>
+  </table>
+ 
+</div>
+</div>
+{% endblock body %}
